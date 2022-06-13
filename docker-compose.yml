@@ -5,6 +5,8 @@ services:
     depends_on:
       - postgresql
     image: teamatldocker/jira
+    labels:
+      shipyard.route: '/'
     networks:
       - jiranet
     volumes:
@@ -28,6 +30,8 @@ services:
 
   postgresql:
     image: postgres:9.5-alpine
+    ports:
+    - "5432"
     networks:
       - jiranet
     volumes:
